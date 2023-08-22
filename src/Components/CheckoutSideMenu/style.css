@@ -1,0 +1,19 @@
+.checkout-side-menu {
+    width: 360px;
+    height: calc(100vh - 72px);
+    top: 68px;
+}
+
+.checkout-side-list::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+}
+
+.checkout-side-list::-webkit-scrollbar-track {
+    background: rgb(232, 239, 246);        /* color of the tracking area */
+} 
+
+.checkout-side-list::-webkit-scrollbar-thumb {
+    background-color: slategray;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgb(232, 239, 246);  /* creates padding around scroll thumb */
+}
