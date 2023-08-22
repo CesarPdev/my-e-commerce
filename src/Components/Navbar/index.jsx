@@ -10,6 +10,12 @@ function Navbar() {
     const openCheckoutMenu = () => {
         context.openCheckoutSideMenu()
     }
+
+    const handleSignOut = () => {
+        const stringifiedSignOut = JSON.stringify(true);
+        localStorage.setItem('sign-out',stringifiedSignOut );
+        context.setSignOut(true);
+    }
     
     return (
         <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-4 px-8 bg-white text-sm font-light'>
@@ -100,10 +106,13 @@ function Navbar() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/sign-in' className={({ isActive }) => 
+                    <NavLink
+                        to='/sign-in'
+                        onClick={() => handleSignOut()}
+                        className={({ isActive }) => 
                         isActive ? activeStyle : undefined
                         }>
-                        Sign In
+                        Sign Out
                     </NavLink>
                 </li>
                 <li className='flex cursor-pointer'
