@@ -7,6 +7,66 @@ function Navbar() {
     const context = useContext(ShoppingCartContext)
     const activeStyle = 'underline underline-offset-4'
 
+    // Sign Out
+    const signOut = localStorage.getItem('sign-out');
+    const parsedSignOut = JSON.parse(signOut);
+    const isUserSignOut = context.signOut || parsedSignOut;
+    
+    const renderView = () => {
+        if (isUserSignOut) {
+            return (
+                <ul>
+                    <li>
+                        <NavLink
+                            to='/sign-in'
+                            className={({ isActive }) => isActive ? activeStyle : undefined}
+                            onClick={() => handleSignOut()}
+                        >
+                        Sign In
+                        </NavLink>
+                    </li>
+                </ul>
+            )
+        } else {
+            return (
+                <ul className='flex items-center gap-3'>
+                    <li className='text-black/75'>
+                        mail@mail.com
+                    </li>
+                    <li>
+                        <NavLink to='/my-orders' className={({ isActive }) => 
+                            isActive ? activeStyle : undefined
+                            }>
+                            My Orders
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/my-account' className={({ isActive }) => 
+                            isActive ? activeStyle : undefined
+                            }>
+                            My Account
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to='/sign-in'
+                            onClick={() => handleSignOut()}
+                            className={({ isActive }) => 
+                            isActive ? activeStyle : undefined
+                            }>
+                            Sign Out
+                        </NavLink>
+                    </li>
+                    <li className='flex cursor-pointer'
+                        onClick={() => openCheckoutMenu()}
+                    >
+                        <ShoppingBagIcon className='h-4 w-4 text-black'/> {context.cartProducts.length}
+                    </li>
+                </ul>
+            )
+        }
+    }
+    
     const openCheckoutMenu = () => {
         context.openCheckoutSideMenu()
     }
@@ -58,7 +118,7 @@ function Navbar() {
                 <li>
                     <NavLink
                         to='/furnitures'
-                        onClick={() => context.setSearchByCategory('furnitures')}
+                        onClick={() => context.setSearchByCategory('furniture')}
                         className={({ isActive }) => 
                         isActive ? activeStyle : undefined
                         }>
@@ -86,41 +146,7 @@ function Navbar() {
                     </NavLink>
                 </li>
             </ul>
-
-            <ul className='flex items-center gap-3'>
-                <li className='text-black/75'>
-                    mail@mail.com
-                </li>
-                <li>
-                    <NavLink to='/my-orders' className={({ isActive }) => 
-                        isActive ? activeStyle : undefined
-                        }>
-                        My Orders
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/my-account' className={({ isActive }) => 
-                        isActive ? activeStyle : undefined
-                        }>
-                        My Account
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/sign-in'
-                        onClick={() => handleSignOut()}
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined
-                        }>
-                        Sign Out
-                    </NavLink>
-                </li>
-                <li className='flex cursor-pointer'
-                    onClick={() => openCheckoutMenu()}
-                >
-                    <ShoppingBagIcon className='h-4 w-4 text-black'/> {context.cartProducts.length}
-                </li>
-            </ul>
+            {renderView()}
         </nav>
     )
 }
