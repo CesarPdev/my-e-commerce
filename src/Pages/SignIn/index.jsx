@@ -36,7 +36,6 @@ function SigIn() {
         localStorage.setItem("account",stringifiedAccount);
         context.setAccount(data);
         handleSignIn();
-        console.log(context.account.email)
     };
 
 
