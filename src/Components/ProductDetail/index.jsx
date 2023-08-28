@@ -35,7 +35,7 @@ const ProductDetail = () => {
 
     return (
         <aside
-            className={`${context.isDetailOpen ? 'flex' : 'hidden'} product-detail flex-col fixed right-2 border rounded-lg bg-white`}>
+            className={`${context.isDetailOpen ? 'flex' : 'hidden'} product-detail flex-col fixed right-2 border rounded-lg bg-white overflow-y-scroll overflow-x-hidden`}>
             <div className='flex justify-between items-center p-3'>
                 <h2 className='font-light text-2xl'>Product Details</h2>
                 <button className='transition ease-in-out delay-100 hover:scale-150'
@@ -46,7 +46,7 @@ const ProductDetail = () => {
             </div>
             <figure className='m-2'>
                 <img
-                    src={context.productDetail.images}
+                    src={context.productDetail.image}
                     alt={context.productDetail.title}
                     className='w-full h-full rounded-lg'
                 />

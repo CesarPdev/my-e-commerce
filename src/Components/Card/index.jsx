@@ -46,8 +46,8 @@ function Card(data) {
       onClick={() => showProductDetail(data.data)}
     >
         <figure className='relative mb-2 w-full h-4/5'>
-            <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{data.data.category.name}</span>
-            <img className='w-full h-full object-cover rounded-lg' src={data.data.images} alt={data.data.description} />
+            <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{data.data.category}</span>
+            <img className='w-full h-full object-cover rounded-lg' src={data.data.image} alt={data.data.description} />
             {renderIcon(data.data.id)}
         </figure>
         <p className='flex justify-between'>

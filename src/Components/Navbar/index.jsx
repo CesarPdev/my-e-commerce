@@ -98,11 +98,11 @@ function Navbar() {
                 <li>
                     <NavLink
                         to='/clothes'
-                        onClick={() => context.setSearchByCategory('clothes')}
+                        onClick={() => context.setSearchByCategory("men's clothing")}
                         className={({ isActive }) => 
                         isActive ? activeStyle : undefined
                         }>
-                        Clothes
+                        Men's Clothes
                     </NavLink>
                 </li>
                 <li>
@@ -117,12 +117,12 @@ function Navbar() {
                 </li>
                 <li>
                     <NavLink
-                        to='/furnitures'
-                        onClick={() => context.setSearchByCategory('furniture')}
+                        to='/jewelery'
+                        onClick={() => context.setSearchByCategory('jewelery')}
                         className={({ isActive }) => 
                         isActive ? activeStyle : undefined
                         }>
-                        Furnitures
+                        Jewelery
                     </NavLink>
                 </li>
                 <li>
