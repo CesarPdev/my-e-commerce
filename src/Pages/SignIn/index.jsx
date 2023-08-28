@@ -25,6 +25,7 @@ function SigIn() {
         return <Navigate replace to={'/'} />
     };
 
+    // Create an Account
     const createAnAccount = () => {
         const formData = new FormData(form.current);
         const data = {
