@@ -34,7 +34,7 @@ const renderView = () => {
         return (
                 <>
                 <li className='text-black/60'>
-                {parsedAccount.email}
+                {parsedAccount?.email}
                 </li>
                 <li>
                     <NavLink
