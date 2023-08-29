@@ -7,7 +7,8 @@ const ProductDetail = () => {
     const context = useContext(ShoppingCartContext);
 
     function AddProductToCart() {
-        context.setCartProducts([...context.cartProducts, context.productDetail])
+        context.setCartProducts([...context.cartProducts, context.productDetail]);
+        context.closeDetail();
     };
 
     function renderIcon(id) {
