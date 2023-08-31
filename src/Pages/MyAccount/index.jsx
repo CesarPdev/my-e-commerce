@@ -93,9 +93,8 @@ function MyAccount() {
 
     return (
         <Layout>
-        MyAccount
-        <h1 className="font-medium text-xl text-center mb-6 w-80">My account</h1>
-        {renderView()}
+            <h1 className="font-medium text-xl text-center m-6 w-80">My account</h1>
+            {renderView()}
         </Layout>
     )
 };

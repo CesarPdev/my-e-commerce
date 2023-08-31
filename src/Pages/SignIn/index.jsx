@@ -43,13 +43,13 @@ function SigIn() {
     const renderLogin = () => {
         return (
             <div className='flex flex-col w-80'>
-                <p>
-                <span className='font-light text-sm'>Email: </span>
-                <span>{parsedAccount?.email}</span>
+                <p className="mb-1">
+                    <span className='font-light text-sm'>User Name: </span>
+                    <span>{parsedAccount?.name}</span>
                 </p>
                 <p className="mb-4">
-                <span className='font-light text-sm'>Password: </span>
-                <span>{parsedAccount?.password}</span>
+                    <span className='font-light text-sm'>Email: </span>
+                    <span>{parsedAccount?.email}</span>
                 </p>
                 <Link
                     to="/">
@@ -127,7 +127,7 @@ function SigIn() {
 
     return (
         <Layout>
-            <h1 className='font-medium text-xl text-center mb-6 w-80'>
+            <h1 className='font-medium text-xl text-center m-6 w-80'>
                 Welcome
             </h1>
             {renderView()}

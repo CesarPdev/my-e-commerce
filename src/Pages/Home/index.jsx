@@ -29,7 +29,7 @@ function Home() {
     return (
         <>
             <Layout>
-                <h1 className="font-medium text-2xl mb-4">
+                <h1 className="font-medium text-2xl m-6">
                     Shopi - Exclusive Products
                 </h1>
                 <input

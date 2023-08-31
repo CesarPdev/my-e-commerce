@@ -5,7 +5,7 @@ function NotFound() {
     return (
         <>
         <Layout>
-            NotFound
+            Page Not Found
         </Layout>
         </>
     )

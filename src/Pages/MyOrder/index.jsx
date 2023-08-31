@@ -20,7 +20,7 @@ function MyOrder() {
                 <Link to='/my-orders'>
                     <ChevronLeftIcon className="h-6 w-6 text-black cursor-pointer"/>
                 </Link>
-                <h1 className="font-medium text-xl">My Order</h1>
+                <h1 className="font-medium text-xl m-6">My Order</h1>
             </div>
             <section>
                 {
