@@ -44,7 +44,7 @@ function SigIn() {
         return (
             <div className='flex flex-col w-80'>
                 <p className="mb-1">
-                    <span className='font-light text-sm'>User Name: </span>
+                    <span className='font-light text-sm'>{context.lang === 'en' ? 'User Name' : 'Nombre'}: </span>
                     <span>{parsedAccount?.name}</span>
                 </p>
                 <p className="mb-4">
@@ -57,19 +57,19 @@ function SigIn() {
                         className='bg-black disabled:bg-black/40 text-white w-full rounded-lg py-3'
                         onClick={() => handleSignIn()}
                         disabled={!hasUserAnAccount}>
-                        Log In
+                        {context.lang === 'en' ? 'Log In' : 'Ingresar'}
                     </button>
                 </Link>
                 <div className='text-center mt-4'>
                     <a className='font-light text-xs underline underline-offset-4 cursor-pointer'>
-                        Forgot my Password
+                    {context.lang === 'en' ? 'Forgot my password' : 'Olvidé mi contraseña'}
                     </a>
                 </div>
                 <button
                 className='border border-black disabled:text-black/40 disabled:border-black/40 rounded-lg mt-6 py-3'
                 onClick={() => setView('create-user')}
                 disabled={hasUserAnAccount}>
-                Sign Up
+                {context.lang === 'en' ? 'Sign Up' : 'Crear cuenta'}
                 </button>
             </div>
         )
@@ -79,7 +79,7 @@ function SigIn() {
         return (
             <form ref={form} className="flex flex-col gap-4 w-80">
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="name" className="font-light text-sm">Name:</label>
+                    <label htmlFor="name" className="font-light text-sm">{context.lang === 'en' ? 'Name' : 'Nombre'}:</label>
                     <input
                         type="text"
                         id="name"
@@ -101,7 +101,7 @@ function SigIn() {
                     />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <label htmlFor="password" className="font-light text-sm">Password:</label>
+                    <label htmlFor="password" className="font-light text-sm">{context.lang === 'en' ? 'Password' : 'Contraseña'}:</label>
                     <input
                         type="password"
                         id="password"
@@ -116,7 +116,7 @@ function SigIn() {
                         className="bg-black text-white w-full rounded-lg py-3"
                         onClick={() => createAnAccount()}
                     >
-                        Create an account
+                        {context.lang === 'en' ? 'Create an account' : 'Crear cuenta'}
                     </button>
                 </Link>
             </form>
@@ -128,7 +128,7 @@ function SigIn() {
     return (
         <Layout>
             <h1 className='font-medium text-xl text-center m-6 w-80'>
-                Welcome
+            {context.lang === 'en' ? 'Welcome' : 'Bienvenido'}
             </h1>
             {renderView()}
         </Layout>

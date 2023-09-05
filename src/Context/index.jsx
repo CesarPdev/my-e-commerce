@@ -30,6 +30,9 @@ export const ShoppingCartProvider = ({children}) => {
 
     // Sign Out
     const [signOut, setSignOut] = useState(false);
+
+    // Language
+    const [lang, setLang] = useState('en');
     
     // Shopping Cart · Add products to cart
     const [cartProducts, setCartProducts] = useState([]);
@@ -128,7 +131,9 @@ export const ShoppingCartProvider = ({children}) => {
             account,
             setAccount,
             signOut,
-            setSignOut
+            setSignOut,
+            lang,
+            setLang
         }}>
             {children}
         </ShoppingCartContext.Provider>

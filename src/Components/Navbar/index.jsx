@@ -32,7 +32,7 @@ const Navbar = () => {
 const renderView = () => {
     if (hasUserAnAccount && !isUserSignOut) {
         return (
-                <>
+            <ul className='flex flex-row gap-3'>
                 <li className='text-black/60'>
                 {parsedAccount?.email}
                 </li>
@@ -40,14 +40,14 @@ const renderView = () => {
                     <NavLink
                     to='/my-orders'
                     className={({ isActive }) => isActive ? activeStyle : undefined}>
-                    My Orders
+                    {context.lang === 'en' ? 'My Orders' : 'Mis Compras'}
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
                     to='/my-account'
                     className={({ isActive }) => isActive ? activeStyle : undefined}>
-                    My Account
+                    {context.lang === 'en' ? 'My Account' : 'Mi Cuenta'}
                     </NavLink>
                 </li>
                 <li>
@@ -55,10 +55,10 @@ const renderView = () => {
                     to='/sign-in'
                     className={({ isActive }) => isActive ? activeStyle : undefined}
                     onClick={() => handleSignOut()}>
-                    Sign out
+                    {context.lang === 'en' ? 'Sign out' : 'Salir'}
                     </NavLink>
                 </li>
-            </>
+            </ul>
         )
     } else {
         return (
@@ -89,7 +89,7 @@ const renderView = () => {
                     className={({ isActive }) =>
                     isActive ? activeStyle : undefined
                     }>
-                    All
+                    {context.lang === 'en' ? 'All' : 'Todo'}
                 </NavLink>
                 </li>
                 <li>
@@ -99,7 +99,7 @@ const renderView = () => {
                     className={({ isActive }) =>
                     isActive ? activeStyle : undefined
                     }>
-                    Clothes
+                    {context.lang === 'en' ? 'Clothes' : 'Indumentaria'}
                 </NavLink>
                 </li>
                 <li>
@@ -109,7 +109,7 @@ const renderView = () => {
                     className={({ isActive }) =>
                     isActive ? activeStyle : undefined
                     }>
-                    Electronics
+                    {context.lang === 'en' ? 'Electronics' : 'Electrónica'}
                 </NavLink>
                 </li>
                 <li>
@@ -119,32 +119,23 @@ const renderView = () => {
                     className={({ isActive }) =>
                     isActive ? activeStyle : undefined
                     }>
-                    Jewelery
-                </NavLink>
-                </li>
-                <li>
-                <NavLink
-                    to='/toys'
-                    onClick={() => context.setSearchByCategory('toys')}
-                    className={({ isActive }) =>
-                    isActive ? activeStyle : undefined
-                    }>
-                    Toys
-                </NavLink>
-                </li>
-                <li>
-                <NavLink
-                    to='/other'
-                    onClick={() => context.setSearchByCategory('other')}
-                    className={({ isActive }) =>
-                    isActive ? activeStyle : undefined
-                    }>
-                    Others
+                    {context.lang === 'en' ? 'Jewelery' : 'Joyería'}
                 </NavLink>
                 </li>
             </ul>
             <ul className='flex items-center gap-3'>
                 {renderView()}
+                <li>
+                    <select
+                        className='rounded-lg'
+                        id='lang'
+                        value={context.lang}
+                        onChange={(e) => context.setLang(e.target.value)}
+                    >
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </li>
                 <li
                     className='flex items-center cursor-pointer'
                     onClick={() => openCheckoutMenu()}>

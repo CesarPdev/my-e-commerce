@@ -5,7 +5,7 @@ function NotFound() {
     return (
         <>
         <Layout>
-            Page Not Found
+            {context.lang === 'en' ? 'Page Not Found' : 'Página no encontrada'}
         </Layout>
         </>
     )

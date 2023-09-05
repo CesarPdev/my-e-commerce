@@ -20,7 +20,9 @@ function Home() {
                 )
             } else {
                 return (
-                    <h1 className="font-medium text-2xl mt-8 pt-8">Nothing here...</h1>
+                    <h1 className="font-medium text-2xl mt-8 pt-8">
+                        {context.lang === 'en' ? 'Nothing here...' : 'Nada por aquí...'}
+                    </h1>
                 )
             }
         
@@ -30,12 +32,12 @@ function Home() {
         <>
             <Layout>
                 <h1 className="font-medium text-2xl m-6">
-                    Shopi - Exclusive Products
+                    Shopi - {context.lang === 'en' ? 'Exclusive Products' : 'Productos Exclusivos'}
                 </h1>
                 <input
                     name='searchField'
                     type="text"
-                    placeholder="Search"
+                    placeholder={`${context.lang === 'en' ? 'Search' : 'Buscar'}`}
                     className="w-80 h-10 mb-4 pl-4 border rounded-full focus:outline-none"
                     onChange={(e) => context.setSearchByTitle(e.target.value)}
                 />

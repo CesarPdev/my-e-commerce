@@ -29,7 +29,9 @@ const CheckoutSideMenu = () => {
         <aside
             className={`${context.isCheckoutSideMenuOpen && context.cartProducts.length ? 'flex' : 'hidden'} checkout-side-menu flex-col fixed right-2 border rounded-lg bg-white`}>
             <header className='flex justify-between items-center p-3'>
-                <h2 className='font-light text-2xl'>My Order</h2>
+                <h2 className='font-light text-2xl'>
+                    {context.lang === 'en' ? 'My Order' : 'Mi Compra'}
+                </h2>
                 <button className='transition ease-in-out delay-100 hover:scale-150'
                     onClick={() => context.closeCheckoutSideMenu()}
                 >
@@ -60,8 +62,8 @@ const CheckoutSideMenu = () => {
                         <button
                             className='m-4 p-2 w-full rounded-lg text-white transition ease-in-out delay-100 bg-blue-500 hover:-translate-y-1 hover:scale-120 hover:bg-indigo-500 duration-300'
                             onClick={() => handleCheckout()}
-                            >
-                            Chechout Order
+                        >
+                            {context.lang === 'en' ? 'Checkout Order' : 'Confirmar Compra'}
                         </button>
                     </div>
                 </Link>

@@ -27,7 +27,7 @@ function MyAccount() {
         return (
             <div className='flex flex-col w-80'>
                 <p>
-                    <span className='font-light text-sm'>Name: </span>
+                    <span className='font-light text-sm'>{context.lang === 'en' ? 'Name' : 'Nombre'}: </span>
                     <span>{parsedAccount?.name}</span>
                 </p>
                 <p>
@@ -38,7 +38,7 @@ function MyAccount() {
                     className='border border-black rounded-lg mt-6 py-3'
                     onClick={() => setView('edit-user-info')}
                 >
-                    Edit
+                    {context.lang === 'en' ? 'Edit' : 'Editar'}
                 </button>
             </div>
         )
@@ -48,7 +48,7 @@ function MyAccount() {
         return (
         <form ref={form} className='flex flex-col gap-4 w-80'>
             <div className='flex flex-col gap-1'>
-            <label htmlFor="name" className='font-light text-sm'>Your name:</label>
+            <label htmlFor="name" className='font-light text-sm'>{context.lang === 'en' ? 'Your name' : 'Tu nombre'}:</label>
             <input
                 type="text"
                 id="name"
@@ -59,18 +59,18 @@ function MyAccount() {
             />
             </div>
             <div className='flex flex-col gap-1'>
-            <label htmlFor="email" className='font-light text-sm'>Your email:</label>
+            <label htmlFor="email" className='font-light text-sm'>{context.lang === 'en' ? 'Your ' : 'Tu '}email:</label>
             <input
                 type="text"
                 id="email"
                 name="email"
                 defaultValue={parsedAccount.email}
-                placeholder="hi@helloworld.com"
+                placeholder="email@mail.com"
                 className='rounded-lg border border-black placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4'
             />
             </div>
             <div className='flex flex-col gap-1'>
-            <label htmlFor="password" className='font-light text-sm'>Your password:</label>
+            <label htmlFor="password" className='font-light text-sm'>{context.lang === 'en' ? 'Your password' : 'Tu contraseña'}:</label>
             <input
                 type="text"
                 id="password"
@@ -83,7 +83,7 @@ function MyAccount() {
             <button
             className='bg-black text-white w-full rounded-lg py-3'
             onClick={() => {setView('user-info'), editAccount()}}>
-            Edit
+            {context.lang === 'en' ? 'Edit' : 'Editar'}
             </button>
         </form>
         )
@@ -93,7 +93,7 @@ function MyAccount() {
 
     return (
         <Layout>
-            <h1 className="font-medium text-xl text-center m-6 w-80">My account</h1>
+            <h1 className="font-medium text-xl text-center m-6 w-80">{context.lang === 'en' ? 'My account' : 'Mi cuenta'}</h1>
             {renderView()}
         </Layout>
     )

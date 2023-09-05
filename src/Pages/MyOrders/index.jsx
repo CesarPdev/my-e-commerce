@@ -13,7 +13,7 @@ function MyOrders() {
         <>
         <Layout>
             <h1 className="font-medium text-xl m-6">
-            My Orders
+                {context.lang === 'en' ? 'My Orders' : 'Mis Compras'}
             </h1>
             {
                 context.order.map((order, index) => (
