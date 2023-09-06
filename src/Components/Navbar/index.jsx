@@ -67,7 +67,7 @@ const renderView = () => {
                     to="/sign-in"
                     className={({ isActive }) => isActive ? activeStyle : undefined }
                     onClick={() => handleSignOut()}>
-                    Sign in
+                    {context.lang === 'en' ? 'Sign in' : 'Ingresar'}
                 </NavLink>
             </li>
         )

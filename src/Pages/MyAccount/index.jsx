@@ -1,4 +1,5 @@
 import { useContext, useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 import { ShoppingCartContext } from '../../Context';
 import Layout from '../../Components/Layout';
 
@@ -23,6 +24,12 @@ function MyAccount() {
         context.setAccount(data);
     };
 
+    const deleteAccount = () => {
+        localStorage.removeItem('account');
+        context.setAccount({});
+        context.setOrder([]);
+    }
+
     const renderUserInfo = () => {
         return (
             <div className='flex flex-col w-80'>
@@ -36,9 +43,19 @@ function MyAccount() {
                 </p>
                 <button
                     className='border border-black rounded-lg mt-6 py-3'
+                    disabled={!account}
                     onClick={() => setView('edit-user-info')}
                 >
-                    {context.lang === 'en' ? 'Edit' : 'Editar'}
+                    {context.lang === 'en' ? 'Edit account' : 'Editar cuenta'}
+                </button>
+                <button
+                    className='border border-black rounded-lg mt-6 py-3'
+                    disabled={!account}
+                    onClick={() => deleteAccount('account')}
+                >
+                    <NavLink to='/sign-in'>
+                    {context.lang === 'en' ? 'Delete account' : 'Eliminar cuenta'}
+                    </NavLink>
                 </button>
             </div>
         )
@@ -80,11 +97,11 @@ function MyAccount() {
                 className='rounded-lg border border-black placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4'
             />
             </div>
-            <button
-            className='bg-black text-white w-full rounded-lg py-3'
-            onClick={() => {setView('user-info'), editAccount()}}>
-            {context.lang === 'en' ? 'Edit' : 'Editar'}
-            </button>
+                <button
+                className='bg-black text-white w-full rounded-lg py-3'
+                onClick={() => {setView('user-info'), editAccount()}}>
+                {context.lang === 'en' ? 'Edit' : 'Editar'}
+                </button>
         </form>
         )
     };

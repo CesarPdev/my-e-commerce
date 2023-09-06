@@ -76,8 +76,10 @@ function SigIn() {
     };
 
     const renderCreateUserInfo = () => {
+
+        const handleSubmit = (e) => {e.preventDefault();}
         return (
-            <form ref={form} className="flex flex-col gap-4 w-80">
+            <form ref={form} onSubmit={handleSubmit} className="flex flex-col gap-4 w-80">
                 <div className="flex flex-col gap-1">
                     <label htmlFor="name" className="font-light text-sm">{context.lang === 'en' ? 'Name' : 'Nombre'}:</label>
                     <input
@@ -85,6 +87,7 @@ function SigIn() {
                         id="name"
                         name="name"
                         defaultValue={parsedAccount?.name}
+                        required
                         placeholder="Name"
                         className="rounded-lg border border-black placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4"
                     />
@@ -96,6 +99,7 @@ function SigIn() {
                         id="email"
                         name="email"
                         defaultValue={parsedAccount?.email}
+                        required
                         placeholder="mail@mail.com"
                         className="rounded-lg border border-black placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4"
                     />
@@ -107,6 +111,7 @@ function SigIn() {
                         id="password"
                         name="password"
                         defaultValue={parsedAccount?.password}
+                        required
                         placeholder="******"
                         className="rounded-lg border border-black placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4"
                     />
@@ -114,6 +119,7 @@ function SigIn() {
                 <Link to="/">
                     <button
                         className="bg-black text-white w-full rounded-lg py-3"
+                        type='submit'
                         onClick={() => createAnAccount()}
                     >
                         {context.lang === 'en' ? 'Create an account' : 'Crear cuenta'}
